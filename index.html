@@ -1,0 +1,71 @@
+<html>
+<head>
+	<title>Winter Chill</title> 
+
+	<link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
+
+	<script src="x-gif/dist/platform.js"></script>
+	<link rel="import" href="x-gif/dist/x-gif.html">
+
+	<style type="text/css">
+
+		col-sm-4{
+			position:relative;
+		}
+
+	</style>
+
+
+</head>
+<body>
+
+<div class="container-fluid">
+
+<div class="row">
+
+<div class="col-sm-6 col-sm-offset-3" style="border: solid 1px black;">
+
+	<h3>
+		Click each emissions scenario to see how winter chill hours are projected to decline by the end of the century.
+	</h3>
+
+	<div class="col-sm-4">
+		<x-gif stopped src="low.gif"></x-gif>
+		<br />
+		Low-Emissions
+	</div>
+	<div class="col-sm-4">
+		<x-gif stopped src="middle.gif"></x-gif>
+		<br />
+		Medium-Emissions
+	</div>
+	<div class="col-sm-4">
+		<x-gif stopped src="high.gif"></x-gif>
+		<br />
+		High-Emissions
+	</div>
+
+</div>
+
+</div>
+
+</div>
+
+    <script>
+
+      window.addEventListener('polymer-ready', function(e) {
+        document.querySelectorAll('x-gif').array().forEach(function (el) {
+          el.addEventListener('click', function () {
+            el.stopped = (el.stopped == null) ? true : null;
+          })
+        })
+      });
+
+    </script>
+
+
+</body>
+</html>
