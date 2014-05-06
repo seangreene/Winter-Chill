@@ -17,22 +17,19 @@
 
 	</style>
 
-	<!-- Activate responsiveness in the "child" page -->
-    <script src="js/jquery.responsiveiframe.js"></script>
-    <script>
-      var ri = responsiveIframe();
-      ri.allowResponsiveEmbedding();
-    </script>
-
 </head>
 <body>
 
-<div class="container-fluid">
-
-<div class="row">
-
 <div class="col-sm-6 col-sm-offset-3" >
-
+	<script>
+      window.addEventListener('polymer-ready', function(e) {
+        document.querySelectorAll('x-gif').array().forEach(function (el) {
+          el.addEventListener('click', function () {
+            el.stopped = (el.stopped == null) ? true : null;
+          })
+        })
+      });
+    </script>
 	<h3>
 		Click each emissions scenario to see how winter chill hours are projected to decline by the end of the century.
 	</h3>
@@ -53,25 +50,7 @@
 		<p>High emissions:</p>
 		<x-gif stopped src="high2.gif"></x-gif>
 	</div>
-
 </div>
-
-</div>
-
-</div>
-
-    <script>
-
-      window.addEventListener('polymer-ready', function(e) {
-        document.querySelectorAll('x-gif').array().forEach(function (el) {
-          el.addEventListener('click', function () {
-            el.stopped = (el.stopped == null) ? true : null;
-          })
-        })
-      });
-
-    </script>
-
 
 </body>
 </html>
